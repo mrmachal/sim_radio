@@ -30,6 +30,17 @@ echo 'sdk.dir=<你的 Android SDK 路径>' > local.properties
 
 产物在 `app/build/outputs/apk/debug/app-debug.apk`。
 
+签名 release 包（25 MB → 2.7 MB，R8 混淆 + 资源压缩）：
+
+```bash
+keytool -genkeypair -keystore app/keystore/simradio.jks -alias simradio \
+  -keyalg RSA -keysize 2048 -validity 10950 \
+  -storepass simradio -keypass simradio -dname "CN=SimRadio"
+./gradlew :app:assembleRelease
+```
+
+产物在 `app/build/outputs/apk/release/app-release.apk`。密钥库与口令是演示值，正式分发请换成自己的。
+
 安装到已连接的设备：
 
 ```bash

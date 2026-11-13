@@ -29,8 +29,17 @@ gradle/libs.versions.toml 依赖版本目录
 
 ```bash
 ./gradlew :app:assembleDebug     # 构建 debug APK
-./gradlew :app:lint              # 静态检查
+./gradlew :app:assembleRelease   # 构建签名 release APK（2.7 MB）
+./gradlew :app:lint              # 静态检查，应为零告警
 adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+release 签名需要 `app/keystore/simradio.jks`（不入库），生成：
+
+```bash
+keytool -genkeypair -keystore app/keystore/simradio.jks -alias simradio \
+  -keyalg RSA -keysize 2048 -validity 10950 \
+  -storepass simradio -keypass simradio -dname "CN=SimRadio"
 ```
 
 `local.properties` 里写 `sdk.dir` 指向本机 Android SDK，已在 `.gitignore` 中。Gradle wrapper 指向腾讯云镜像，换网络环境时可改 `gradle/wrapper/gradle-wrapper.properties` 的 `distributionUrl`。
