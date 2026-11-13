@@ -24,7 +24,7 @@ class PlaybackService : MediaSessionService() {
         val player = ExoPlayer.Builder(this)
             .setMediaSourceFactory(DefaultMediaSourceFactory(this))
             .setLoadControl(
-                // 直播流只需浅缓冲，过深会拖慢起播。
+                // 直播流缓冲参数
                 DefaultLoadControl.Builder()
                     .setBufferDurationsMs(MIN_BUFFER_MS, MAX_BUFFER_MS, PLAYBACK_BUFFER_MS, REBUFFER_MS)
                     .build(),

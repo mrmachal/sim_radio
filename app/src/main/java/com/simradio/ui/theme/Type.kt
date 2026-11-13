@@ -12,7 +12,7 @@ private val tightHeight = LineHeightStyle(
     trim = LineHeightStyle.Trim.None,
 )
 
-// Material 类型刻度，标题收紧字距、正文放宽行高。
+// Material 类型刻度。
 val SimRadioTypography = Typography(
     displaySmall = TextStyle(
         fontFamily = FontFamily.Default,

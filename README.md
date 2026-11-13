@@ -8,11 +8,11 @@ Android 上的网络收音机。打开即听，不用注册、不用登录，也
 
 - **发现**：中文电台与全球热门两个范围，按新闻、音乐、交通、财经、文艺、评书、体育等主题分组，列表按社区票数排序，滚动到底自动加载下一页。
 - **搜索**：按名称检索，也可以从热门标签或国家/地区直接进入。
-- **播放**：Media3 + ExoPlayer，支持 MP3、AAC 与 HLS 直播流；通知栏与控制中心可控制播放。
+- **播放**：支持 MP3、AAC 与 HLS 直播流；通知栏与控制中心可控制播放。
 - **刻度盘切台**：播放页的调谐刻度盘左右滑动即可切换上一个/下一个电台。
 - **收藏与最近**：收藏与最近收听的电台保存在本地，随时回到。
 - **定时关闭**：15 / 30 / 60 分钟后自动停止播放。
-- 深色与浅色主题跟随系统，界面按 Material 3 构建。
+- 深色与浅色主题跟随系统。
 
 ## 环境要求
 
@@ -30,7 +30,7 @@ echo 'sdk.dir=<你的 Android SDK 路径>' > local.properties
 
 产物在 `app/build/outputs/apk/debug/app-debug.apk`。
 
-签名 release 包（25 MB → 2.7 MB，R8 混淆 + 资源压缩）：
+签名 release 包：
 
 ```bash
 keytool -genkeypair -keystore app/keystore/simradio.jks -alias simradio \
@@ -47,23 +47,7 @@ keytool -genkeypair -keystore app/keystore/simradio.jks -alias simradio \
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-`local.properties` 保存本机 SDK 路径，不属于仓库内容。Gradle wrapper 的 distributionUrl 指向腾讯云镜像，因为 services.gradle.org 在部分网络下不可达；如果你的网络可以直接访问官方源，改回 `https\://services.gradle.org/distributions/gradle-8.10.2-bin.zip` 即可。
-
-## 技术栈
-
-| 组成 | 选择 |
-| --- | --- |
-| 语言与 UI | Kotlin 2.0、Jetpack Compose、Material 3 |
-| 播放 | AndroidX Media3（ExoPlayer + MediaSessionService） |
-| 网络 | OkHttp + kotlinx.serialization |
-| 本地存储 | DataStore Preferences |
-| 图片 | Coil |
-
-## 数据来源
-
-目录查询走 radio-browser 的 `stations/search`、`countries` 与 `tags` 接口。官方发现端点 `all.api.radio-browser.info` 在部分网络下不稳，因此内置 `de1` / `si1` / `fr1` / `fi1` 四个镜像并按序做故障转移，探测结果缓存 24 小时。
-
-接口与用法见 [radio-browser API 文档](https://de1.api.radio-browser.info/)。
+`local.properties` 保存本机 SDK 路径，不属于仓库内容。
 
 ## 版权与使用边界
 

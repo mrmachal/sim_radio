@@ -42,7 +42,7 @@ keytool -genkeypair -keystore app/keystore/simradio.jks -alias simradio \
   -storepass simradio -keypass simradio -dname "CN=SimRadio"
 ```
 
-`local.properties` 里写 `sdk.dir` 指向本机 Android SDK，已在 `.gitignore` 中。Gradle wrapper 指向腾讯云镜像，换网络环境时可改 `gradle/wrapper/gradle-wrapper.properties` 的 `distributionUrl`。
+`local.properties` 里写 `sdk.dir` 指向本机 Android SDK，已在 `.gitignore` 中。Gradle wrapper 的 `distributionUrl` 指向腾讯云镜像（官方源在部分网络下不可达），换网络环境时改回 `https://services.gradle.org/distributions/gradle-8.10.2-bin.zip`。
 
 ## 数据来源
 

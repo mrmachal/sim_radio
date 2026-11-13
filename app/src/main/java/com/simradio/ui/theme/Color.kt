@@ -2,7 +2,7 @@ package com.simradio.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// 调谐盘世界：墨色底板 + 琥珀刻度灯 + 暖纸浅色方案。
+// 主题配色。
 val Ink = Color(0xFF12100D)
 val InkRaised = Color(0xFF1C1915)
 val InkSunken = Color(0xFF0A0907)

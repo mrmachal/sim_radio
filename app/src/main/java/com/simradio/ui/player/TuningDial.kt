@@ -102,7 +102,7 @@ fun TuningDial(
             }
             drawPath(needle, quiet.copy(alpha = 0.75f))
 
-            // 两端渐隐，让刻度盘看起来延伸出屏幕。
+            // 两端渐隐遮罩。
             drawRect(
                 brush = Brush.horizontalGradient(
                     0f to fading,

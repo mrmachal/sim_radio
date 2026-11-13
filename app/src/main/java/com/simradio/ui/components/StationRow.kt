@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.simradio.data.Station
 import com.simradio.ui.theme.SignalGreen
 
-/** 电台列表行：发丝分隔的行式布局，不用卡片。 */
+/** 电台列表行。 */
 @Composable
 fun StationRow(
     station: Station,
