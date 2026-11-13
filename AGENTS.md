@@ -2,6 +2,8 @@
 
 Android 网络收音机 App。Kotlin + Jetpack Compose + Media3，电台目录取自 radio-browser 开放接口。
 
+本目录是代码仓库，与开发文档仓库 `../sim_radio_docs` 并列，两者各自独立提交。
+
 ## 目录
 
 ```
